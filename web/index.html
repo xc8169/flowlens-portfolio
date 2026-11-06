@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Review FlowLens scientific video analysis exports locally.">
+  <title>FlowLens · Results Review</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header>
+    <div><p class="eyebrow">SCIENTIFIC VIDEO ANALYSIS</p><h1>FlowLens <span>Results Review</span></h1><p>Created by Chuang Xiao · Python / C# / JavaScript</p></div>
+    <div class="actions"><button id="demo">Load synthetic demo</button><label class="button accent" for="files">Open exported files</label><input id="files" type="file" multiple accept=".json,.jpg,.jpeg,.png"><p>Select timeline.json and optional interface.json + preview images.</p></div>
+  </header>
+  <main>
+    <div class="notice" id="notice" role="status" aria-live="polite">Loading the generated example…</div>
+    <div id="error" role="alert" hidden></div>
+    <section class="metrics" aria-label="Selected pair measurements">
+      <article><p class="eyebrow">HORIZONTAL IMAGE MOTION</p><strong id="motion">—</strong><small>Signed pixels per source frame</small></article>
+      <article><p class="eyebrow">CALIBRATED IMAGE VELOCITY</p><strong id="velocity">—</strong><small id="calibration">Calibration status is explicit</small></article>
+      <article><p class="eyebrow">TEXTURE COVERAGE</p><strong id="coverage">—</strong><small>Image detail, not tracking accuracy</small></article>
+      <article><p class="eyebrow">INTERFACE COMPUTE DEVICE</p><strong id="device">—</strong><small>Recorded in the Python result</small></article>
+    </section>
+    <section class="workspace" aria-label="Synchronized pair review">
+      <article class="card"><div class="card-title"><h2>Source frame</h2><button id="toggle">Show B</button></div><div class="image-wrap"><img id="frame" alt="Original selected video frame"><span class="missing" id="frame-missing">Select exported preview images to view the recording.</span></div><p id="frame-info" class="caption"></p></article>
+      <article class="card"><div class="card-title"><h2>Motion vectors</h2><span class="tag">8× display scale</span></div><div class="image-wrap"><img id="vectors" alt="Optical-flow vector overlay"><span class="missing" id="vectors-missing">Vector preview unavailable.</span></div><p class="caption">Yellow arrows visualize image-feature motion.</p></article>
+      <article class="card"><div class="card-title"><h2>Velocity profile</h2><span class="legend"><i></i> Median <i class="gold"></i> Top 10%</span></div><svg id="profile" role="img" aria-label="Velocity versus original image row" viewBox="0 0 440 300"></svg><p class="caption">Fixed axes across pairs · gaps retain missing evidence.</p></article>
+    </section>
+    <section class="navigation card" aria-label="Frame pair navigation"><div class="nav-buttons"><button id="previous" aria-label="Previous frame pair">← Previous</button><button id="next" aria-label="Next frame pair">Next →</button><output id="pair-info"></output></div><label for="pair">Selected frame pair</label><input id="pair" type="range" min="0" max="0" value="0" disabled><p id="pair-time" class="caption"></p></section>
+    <section class="card interface"><div><p class="eyebrow">OPTIONAL INTERFACE REVIEW</p><h2>Boundary position over time</h2><p id="interface-info">Load interface.json to inspect boundary positions and the recorded device. The generated motion example contains no AI prediction.</p><p id="fallback" class="caption"></p></div><svg id="interface-chart" role="img" aria-label="Interface position over time" viewBox="0 0 600 230"></svg></section>
+    <footer><p>Review locally. Selected files stay in this browser; this viewer has no upload endpoint.</p><p>Image-feature motion is not independently validated fluid velocity. Interface scores and coverage are not accuracy.</p></footer>
+  </main>
+</body>
+</html>

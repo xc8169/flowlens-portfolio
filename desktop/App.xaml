@@ -1,0 +1,13 @@
+<Application x:Class="FlowLens.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" StartupUri="MainWindow.xaml">
+ <Application.Resources>
+  <SolidColorBrush x:Key="Ink" Color="#172E39"/>
+  <SolidColorBrush x:Key="Muted" Color="#647982"/>
+  <SolidColorBrush x:Key="Accent" Color="#176D76"/>
+  <Style TargetType="TextBlock"><Setter Property="Foreground" Value="{StaticResource Ink}"/><Setter Property="TextWrapping" Value="Wrap"/></Style>
+  <Style TargetType="Button"><Setter Property="Background" Value="#E8EFF0"/><Setter Property="Foreground" Value="#173A45"/><Setter Property="BorderThickness" Value="0"/><Setter Property="Padding" Value="14,10"/><Setter Property="Cursor" Value="Hand"/><Setter Property="Margin" Value="0,3,7,3"/><Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button"><Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="{TemplateBinding Padding}"><ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/></Border><ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter Property="Opacity" Value="0.82"/></Trigger><Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.4"/></Trigger></ControlTemplate.Triggers></ControlTemplate></Setter.Value></Setter></Style>
+  <Style TargetType="TextBox"><Setter Property="Padding" Value="7,6"/><Setter Property="Background" Value="White"/><Setter Property="BorderBrush" Value="#CCDBDE"/><Setter Property="BorderThickness" Value="1"/><Setter Property="Margin" Value="0,4,9,10"/><Setter Property="Foreground" Value="{StaticResource Ink}"/></Style>
+  <Style TargetType="ComboBox"><Setter Property="Padding" Value="6"/><Setter Property="Margin" Value="0,6,0,12"/></Style>
+  <Style x:Key="Label" TargetType="TextBlock"><Setter Property="FontSize" Value="11"/><Setter Property="Foreground" Value="{StaticResource Muted}"/><Setter Property="Margin" Value="0,7,0,0"/></Style>
+  <Style x:Key="Card" TargetType="Border"><Setter Property="Background" Value="White"/><Setter Property="CornerRadius" Value="10"/><Setter Property="BorderBrush" Value="#E1E9EB"/><Setter Property="BorderThickness" Value="1"/><Setter Property="Padding" Value="17"/></Style>
+ </Application.Resources>
+</Application>

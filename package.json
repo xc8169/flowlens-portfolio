@@ -1,0 +1,10 @@
+{
+  "name": "flowlens-results-review",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local JavaScript review of FlowLens scientific JSON exports",
+  "author": "Chuang Xiao",
+  "scripts": { "test": "node --test web/tests/*.test.mjs" },
+  "engines": { "node": ">=20" }
+}

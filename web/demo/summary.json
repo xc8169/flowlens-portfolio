@@ -1,0 +1,12 @@
+{
+  "kind": "synthetic validation",
+  "seed": 731,
+  "expected_dx_px_per_source_frame": 2.0,
+  "expected_velocity_m_per_s": 0.02,
+  "observed_dx_px_per_source_frame": 1.999822735786438,
+  "observed_velocity_m_per_s": 0.01999822735786438,
+  "python": "3.12.10",
+  "opencv": "5.0.0",
+  "numpy": "2.5.4",
+  "note": "Generated texture translated +2 pixels per source frame. No research video or AI prediction is included."
+}

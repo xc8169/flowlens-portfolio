@@ -1,0 +1,24 @@
+<Window x:Class="FlowLens.AboutWindow"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ Title="About FlowLens · Chuang Xiao" Icon="assets/flowlens.ico"
+ Width="620" Height="610" ResizeMode="NoResize" WindowStartupLocation="CenterOwner"
+ Background="#F3F6F6" FontFamily="Segoe UI" FontSize="13" ShowInTaskbar="False">
+ <Border Background="White" BorderBrush="#E1E9EB" BorderThickness="1" CornerRadius="12" Margin="22" Padding="25">
+  <Grid><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+   <StackPanel>
+    <StackPanel Orientation="Horizontal"><Image Source="assets/flowlens-mark.png" Width="48" Height="48" Margin="0,0,14,0"/><StackPanel><TextBlock Text="FlowLens" FontSize="28" FontWeight="SemiBold"/><TextBlock Text="Scientific Video Motion Analyzer · 0.8.1" Foreground="#647982" FontSize="12"/></StackPanel></StackPanel>
+    <TextBlock Text="Created by Chuang Xiao" Foreground="#176D76" FontSize="23" FontWeight="SemiBold" Margin="0,22,0,0"/>
+   </StackPanel>
+   <ScrollViewer Grid.Row="1" Margin="0,20,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"><StackPanel>
+    <TextBlock Text="PROJECT &amp; SCIENTIFIC WORKFLOW" FontSize="11" FontWeight="SemiBold" Foreground="#647982"/>
+    <TextBlock Text="Oil–water flow analysis based on Chuang Xiao’s experimental videos, research workflow, flow-pattern definitions and manually annotated interfaces." Margin="0,7,0,0"/>
+    <TextBlock Text="DEVELOPMENT" FontSize="11" FontWeight="SemiBold" Foreground="#647982" Margin="0,20,0,0"/>
+    <TextBlock Text="Designed and refined by Chuang Xiao through iterative research review and AI-assisted coding." Margin="0,7,0,0"/>
+    <TextBlock Text="C# / .NET / WPF desktop · Python / OpenCV analysis · PyTorch interface detection with CUDA and CPU fallback." FontSize="12" Foreground="#647982" Margin="0,14,0,0"/>
+    <TextBlock Text="Project source and validation notes are included. Research model weights and recordings are optional local assets. Third-party components retain their own licenses." FontSize="11" Foreground="#647982" Margin="0,14,0,0"/>
+   </StackPanel></ScrollViewer>
+   <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,18,0,0"><Button Content="Open project files" Click="ProjectFiles_Click" Padding="14,8"/><Button Content="Close" IsCancel="True" Click="Close_Click" Padding="18,8" Margin="5,3,0,3"/></StackPanel>
+  </Grid>
+ </Border>
+</Window>

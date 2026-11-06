@@ -1,0 +1,46 @@
+name: Code checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python -m black --check engine scripts tests
+      - run: python scripts/demo.py
+      - run: python -m unittest discover -s tests -v
+  pytorch-cpu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - run: python -m pip install -r requirements-torch-cpu.txt
+      - run: python -m unittest discover -s tests -p test_torch_portfolio.py -v
+  javascript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - run: node --test web/tests/*.test.mjs
+  desktop:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '10.0.x'
+      - run: dotnet build desktop/FlowLens.csproj -c Release
+      - run: dotnet run --project tests/SessionTests/SessionTests.csproj -c Release
+      - run: dotnet run --project tests/CatalogTests/CatalogTests.csproj -c Release

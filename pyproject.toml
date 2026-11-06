@@ -1,0 +1,4 @@
+[tool.black]
+line-length = 100
+target-version = ['py312']
+extend-exclude = '/(\.venv|runtime|engine-bin|runs|data|\.git)/'
